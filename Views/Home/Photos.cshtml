@@ -1,0 +1,24 @@
+﻿@model  IEnumerable<Embroidery_website.Models.Photo>
+
+@{
+    ViewBag.Title = "Photos";
+}
+<link href="~/Content/photos.css" rel="stylesheet" />
+<script src="~/Scripts/_photos.js"></script>
+    <h4>Photo</h4>
+    <div class="row-fluid">
+        <div class="span2">
+            <div>
+                @foreach (var image in Model)
+                {
+                    <div class="photo-div">
+                        <img alt="@image.Description" src="@Url.Content(@image.Path)" class="photo" onclick="display(this);" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div id="divimage" class="modal">
+        <img class="modal-content" id="modalimg">
+        <div id="caption"></div>
+    </div>
